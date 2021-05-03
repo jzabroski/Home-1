@@ -77,6 +77,9 @@ Rob Relyea's spec: https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msb
 Daniel Kuzzulino's spec: https://github.com/NuGet/NuGet.Build.Packaging aka NuGetizer
 Rohit Agarwal's workaround: https://github.com/NuGet/Home/issues/3891#issuecomment-377319939
   * This solution does _not_ also copy any `PackageReference`s from `ProjectReference`s into the resulting `.nuspec` file?
+Joseph Musser's workaround: "If dotnet pack isn't working for you, why don't you go back to using nuget pack?"
+  * This solution has a contra argument here: https://github.com/NuGet/Home/issues/3891#issuecomment-512713719
+  * nuget.exe doesn't understand multi targeting, and the issue about it on the github tracker says something along the lines of "nuget support is being built into dotnet, so we're not going to continue supporting this, as there's no point in duplicating effort".
 
 1. Why is this the best design compared to other designs?
 2. What other designs have been considered and why weren't they chosen?
