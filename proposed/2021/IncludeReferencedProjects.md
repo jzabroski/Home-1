@@ -28,6 +28,8 @@ There is a TODO in the existing NuGet code
 One interaction NuGet has is with MSBuild.  MSBuild already has facilities for copying build output like Content items into the output directory.
 See: https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#including-content-in-a-package
 
+Another interaction is with the [`dotnet pack --IncludeReferencedProjects`](https://docs.microsoft.com/en-us/nuget/reference/cli-reference/cli-ref-pack) CLI.
+
 #### Clarification of Corner Cases
 
 ## Drawbacks
