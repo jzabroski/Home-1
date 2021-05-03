@@ -71,6 +71,7 @@ This would break existing csproj definitions.
 
 Rob Relyea's spec: https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msbuild-target
 Daniel Kuzzulino's spec: https://github.com/NuGet/NuGet.Build.Packaging aka NuGetizer
+Rohit Agarwal's workaround: https://github.com/NuGet/Home/issues/3891#issuecomment-377319939
 
 1. Why is this the best design compared to other designs?
 2. What other designs have been considered and why weren't they chosen?
