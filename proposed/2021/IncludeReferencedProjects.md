@@ -32,6 +32,35 @@ Another interaction is with the [`dotnet pack --IncludeReferencedProjects`](http
 
 #### Clarification of Corner Cases
 
+[Is there a good way for the NuGet package to import the dependencies that the Project had?](https://github.com/NuGet/Home/issues/3891#issuecomment-382867751)
+Say Project A depends on Project B, but Project B depends on NuGet Package 1 and Nuget Package 2.
+```
+Solution 'NuGet.CornerCase1' (2 of 2 projects)
+|
+|
+ \ Class Libraries (solution folder)
+ |-- Project B
+ |
+  \ Dependencies
+   |
+    \ Packages
+    |
+     \ NuGet Package 1
+     \ NuGet Package 2
+|
+ \ Executables (solution folder)
+ |-- Project A
+ |
+  \ Dependencies
+  |
+   \ Projects
+    |
+     \ Project B
+```
+How can I make Project A list the dependences of Project B as its own dependencies?
+
+Note: This use case is used by tools like OctoPack, which require a NuGet package to be self-extracting archive without network calls to NuGet.org or some other package provider.  In this sense, once an OctoPack is created, its internal contents is a consistent snapshot of all transitive dependencies.
+
 ## Drawbacks
 
 1. Why should we not do this?
@@ -41,7 +70,8 @@ This would break existing csproj definitions.
 ## Rationale and alternatives
 
 Rob Relyea's spec: https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msbuild-target
-Daniel Kuzzulino's spec: 
+Daniel Kuzzulino's spec: https://github.com/NuGet/NuGet.Build.Packaging aka NuGetizer
+
 1. Why is this the best design compared to other designs?
 2. What other designs have been considered and why weren't they chosen?
 3. What is the impact of not doing this?
