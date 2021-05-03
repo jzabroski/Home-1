@@ -30,7 +30,11 @@ See: https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#including-
 
 Another interaction is with the [`dotnet pack --IncludeReferencedProjects`](https://docs.microsoft.com/en-us/nuget/reference/cli-reference/cli-ref-pack) CLI.
 
+Another is with PackAsTool.
+
 #### Clarification of Corner Cases
+
+1. Create a nuget package that depends on private libraries, i.e. libraries that are needed at runtime, but should not be exposed as a nuget package.
 
 [Is there a good way for the NuGet package to import the dependencies that the Project had?](https://github.com/NuGet/Home/issues/3891#issuecomment-382867751)
 Say Project A depends on Project B, but Project B depends on NuGet Package 1 and Nuget Package 2.
@@ -72,6 +76,7 @@ This would break existing csproj definitions.
 Rob Relyea's spec: https://github.com/NuGet/Home/wiki/Adding-nuget-pack-as-a-msbuild-target
 Daniel Kuzzulino's spec: https://github.com/NuGet/NuGet.Build.Packaging aka NuGetizer
 Rohit Agarwal's workaround: https://github.com/NuGet/Home/issues/3891#issuecomment-377319939
+  * This solution does _not_ also copy any `PackageReference`s from `ProjectReference`s into the resulting `.nuspec` file?
 
 1. Why is this the best design compared to other designs?
 2. What other designs have been considered and why weren't they chosen?
