@@ -1,6 +1,6 @@
 # IncludeReferencedProjects
 
-- Author Name @jzabroski
+- Author Name [@jzabroski](https://github.com/jzabroski)
 - Start Date (YYYY-MM-DD)
 - GitHub Issue https://github.com/NuGet/Home/issues/3891
 - GitHub PR (GitHub PR link)
