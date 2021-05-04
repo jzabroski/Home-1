@@ -34,7 +34,7 @@ Another is with PackAsTool.
 
 #### Clarification of Corner Cases
 
-1. Create a nuget package that depends on private libraries, i.e. libraries that are needed at runtime, but should not be exposed as a nuget package.
+##### Corner Case 1: Create a nuget package that depends on private libraries, i.e. libraries that are needed at runtime, but should not be exposed as a nuget package.
 
 [Is there a good way for the NuGet package to import the dependencies that the Project had?](https://github.com/NuGet/Home/issues/3891#issuecomment-382867751)
 Say Project A depends on Project B, but Project B depends on NuGet Package 1 and Nuget Package 2.
@@ -64,6 +64,10 @@ Solution 'NuGet.CornerCase1' (2 of 2 projects)
 How can I make Project A list the dependences of Project B as its own dependencies?
 
 Note: This use case is used by tools like OctoPack, which require a NuGet package to be self-extracting archive without network calls to NuGet.org or some other package provider.  In this sense, once an OctoPack is created, its internal contents is a consistent snapshot of all transitive dependencies.
+
+##### Corner Case 2: `PublishSingleFile=true` and `PackAsTool=true` dot not play well with `dotnet pack`
+
+This is an existing issue. See: https://github.com/dotnet/sdk/issues/10402
 
 ## Drawbacks
 
