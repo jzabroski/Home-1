@@ -1,4 +1,4 @@
-# IncludeReferencedProjects
+# PackProjectReferences
 
 - Author Name [@jzabroski](https://github.com/jzabroski)
 - Start Date (YYYY-MM-DD)
