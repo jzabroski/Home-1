@@ -69,6 +69,12 @@ Note: This use case is used by tools like OctoPack, which require a NuGet packag
 
 This is an existing issue. See: https://github.com/dotnet/sdk/issues/10402
 
+However, one can clearly see that `PublishSingleFile=true` is essentially a simplification of this proposal: Rather than pack many dependencies as DLLs/libraries, it would pack all dependencies into a single DLL/executable.
+
+##### Corner Case 3: NuGet.org maximum nupkg file size
+
+There exists the possibility of people wasting a lot of expensive cloud storage (or wasting a lot of free cloud storage provided by Microsoft).  Various package repositories like AzureDevOps and nuget.org have maximum nupkg file size limits, or per account total file size limits.  Therefore, `dotnet pack` might succeed, but `dotnet publish` might fail.  However, this scenario exists today - it just might become easier for the scenario to trigger.
+
 ## Drawbacks
 
 1. Why should we not do this?
